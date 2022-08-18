@@ -1,0 +1,88 @@
+sort1 uses: bubble sort
+
+How do you know?: Process of elimination, also it was slowest for reversed, which is worst for bubble sorting
+
+sort2 uses: merge sort
+
+How do you know?: Significantly faster for the larger random sorting
+
+sort3 uses: selection sort
+
+How do you know?: Lower limit (Omega, best case) for sorted50000 takes longest (since selection = n^2)
+
+
+
+
+sorted 10000
+sort1:
+real    0m0.090s
+user    0m0.007s
+sys     0m0.032s
+
+sort2
+real    0m0.114s
+user    0m0.006s
+sys     0m0.034s
+
+sort3
+real    0m0.214s
+user    0m0.103s
+sys     0m0.044s
+
+sorted 50000
+sort1
+real    0m0.568s
+user    0m0.038s
+sys     0m0.151s
+sort2
+real    0m0.502s
+user    0m0.045s
+sys     0m0.109s
+
+sort3
+real    0m2.998s
+user    0m2.638s
+sys     0m0.173s
+
+
+random 10000
+sort1
+real    0m0.346s
+user    0m0.254s
+sys     0m0.046s
+
+sort2
+real    0m0.087s
+user    0m0.008s
+sys     0m0.038s
+
+sort3
+real    0m0.270s
+user    0m0.120s
+sys     0m0.036s
+
+
+random 50000
+sort1
+real    0m7.766s
+user    0m6.980s
+sys     0m0.174s
+sort2
+real    0m0.472s
+user    0m0.039s
+sys     0m0.159s
+sort3
+real    0m3.202s
+user    0m2.639s
+sys     0m0.151s
+
+
+reversed 50000
+sort1
+real    0m5.682s
+user    0m5.012s
+sys     0m0.170s
+sort 3
+real    0m3.306s
+user    0m2.749s
+sys     0m0.118s
