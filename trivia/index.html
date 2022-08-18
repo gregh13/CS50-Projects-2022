@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which country has the most islands?</h3>
+                <div id="wrong1" style="display: none">
+                    <p class="alert alert-danger">
+                        Incorrect
+                    </p>
+                </div>
+                <div id="right1" style="display: none">
+                    <p class="alert alert-primary">
+                        Correct!
+                    </p>
+                </div>
+                <div>
+                        <button id='1a' class="btn btn-primary">
+                            Thailand
+                        </button>
+                        <button id='2a' class="btn btn-primary">
+                            United States
+                        </button>
+                        <button id='3a' class="btn btn-primary">
+                            Indonesia
+                        </button>
+                        <button id='4a' class="btn btn-primary">Sweden</button>
+                        <button id='5a' class="btn btn-primary">
+                            Philippines
+                        </button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Which creature can survive for years (even decades!) without food or water?</h3>
+                <form id="myform">
+                    <input id="answer" type="text">
+                    <input id="checker" class="btn btn-primary" type="submit">
+                </form>
+                <div id="wrong2" style="display: none">
+                    <p class="alert alert-danger">
+                        Incorrect
+                    </p>
+                </div>
+                <div id="right2" style="display: none">
+                    <p class="alert alert-primary">
+                        Correct!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.getElementById('myform').addEventListener('submit', function(event) {
+            let answer = document.getElementById("answer");
+            if (answer.value == "tardigrade" || answer.value == "Tardigrade") {
+                answer.style.backgroundColor = "green";
+                let feedback = document.getElementById("right2");
+                feedback.style.display = "block";
+            }
+            else {
+                answer.style.backgroundColor = "red";
+                let feedback = document.getElementById("wrong2");
+                feedback.style.display = "block";
+            }
+            event.preventDefault();
+        });
+
+        for (let i = 1; i < 6; i++) {
+            let button1 = document.getElementById(i + 'a');
+            button1.addEventListener('click', function() {
+                if (button1.innerHTML == 'Sweden') {
+                    let feedback = document.getElementById("right1");
+                    feedback.style.display = "block";
+                    button1.style.backgroundColor = '#00ff00';
+                }
+                else {
+                    let feedback = document.getElementById("wrong1");
+                    feedback.style.display = "block";
+                    button1.style.backgroundColor = '#ff0000';
+                }
+            });
+        }
+    </script>
+</html>

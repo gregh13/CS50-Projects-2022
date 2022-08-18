@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <table>
+        <tr>
+            <td style="text-align: right">Symbol:</td>
+            <td style="text-align: left; padding-left: 11px">{{ results.symbol }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Name:</td>
+            <td style="text-align: left; padding-left: 11px">{{ results.name }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: right">Price:</td>
+            <td style="text-align: left; padding-left: 11px">{{ results.price | usd }}</td>
+        </tr>
+    </table>
+{% endblock %}

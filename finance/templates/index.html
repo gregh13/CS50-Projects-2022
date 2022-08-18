@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Shares Owned</th>
+            <th scope="col">Current Price</th>
+            <th scope="col">Total Value</th>
+        </tr>
+        {% for holding in holdings %}
+        <tr>
+            <th scope="row">{{ loop.index }}</th>
+            <td>{{ holding.stock }}</td>
+            <td>{{ holding.amount }}</td>
+            <td>{{ holding.price | usd}}</td>
+            <td>{{ holding.value | usd}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <div style="text-align: left">
+    <h4>Cash Holdings:  {{ cash | usd }}</h4>
+    <hr>
+    <br>
+    <h2>Grand Total Value (Cash and Stocks): {{ grand_total | usd }}</h2>
+    </div>
+    <br>
+    <hr>
+    <p id="extra"> Nothing right now</p>
+    <button id="tester"> A: {{ dictionary.A }}</button>
+
+    <a href="/change_password"><button class="btn btn-primary">Change Password</button></a>
+
+
+    <script>
+        let counter = 0;
+        let test = document.getElementById("tester");
+        let extra = document.getElementById("extra");
+        test.addEventListener('click', function () {
+            extra.innerHTML = {{ dictionary["B"] }};
+            alert({{ random_list }}[counter]);
+            if (counter < list_length){
+                counter++;
+            }
+        });
+    </script>
+{% endblock %}
